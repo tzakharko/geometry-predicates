@@ -9,6 +9,7 @@ if (PNG_FOUND)
     incircle_demo.cpp
     )
 endif(PNG_FOUND)
+FIND_LIBRARY(COCOA_LIBRARY Cocoa)
 
 
 foreach (demo ${demo_list})
@@ -16,5 +17,5 @@ foreach (demo ${demo_list})
   add_executable (${demo}
     ${PROJECT_SOURCE_DIR}/demos/${demo}.cpp
     ${PROJECT_SOURCE_DIR}/demos/write_png.c)
-  target_link_libraries (${demo} predicates m ${PNG_LIBRARIES})
+  target_link_libraries (${demo} predicates m ${PNG_LIBRARIES} ${COCOA_LIBRARY})
 endforeach (demo)
