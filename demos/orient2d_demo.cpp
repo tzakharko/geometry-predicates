@@ -38,12 +38,12 @@ int main()
   //   //return orient2d(x, x2, x3 );
   // };
 
-  auto predicate1 = [&](const double * x) { return orient2d( x3, x, x2); };
-  auto predicate2 = [&](const double * x) { return orient2dfast(x3, x, x2); };
+  auto predicate1 = [&](const double * x) { return orient2d( x, x2, x3); };
+  auto predicate2 = [&](const double * x) { return orient2dfast(x, x2, x3); };
   auto predicate3 = [&](const double * x) { 
     const vector_double2 _x = {x[0], x[1]};
     
-    return simd_orient(_x3 - _x2,  _x-_x2);
+    return simd_orient(_x, _x2, _x3);
     //return orient2d(x, x2, x3 ); 
     
 
